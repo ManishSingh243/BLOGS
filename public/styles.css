@@ -1,0 +1,64 @@
+body {
+    background-color: #f8f9fa;
+  }
+
+  .container {
+    margin-top: 30px;
+  }
+
+  .blog-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .blog-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .blog-author {
+    font-weight: bold;
+  }
+
+  .blog-content {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .comment-form {
+    margin-top: 20px;
+  }
+
+  .comment-label {
+    font-weight: bold;
+  }
+
+  .comment-input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+  .comment-button {
+    margin-top: 10px;
+  }
+
+  .comment-list {
+    margin-top: 20px;
+    padding-left: 20px;
+    list-style: none;
+  }
+
+  .comment-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .delete-button {
+    margin-top: 5px;
+  }

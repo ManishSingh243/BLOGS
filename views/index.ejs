@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloG</title>
+  
+  <!-- Add Bootstrap CSS link here -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="blog-form">
+      <h1 class="blog-title">Create a New Blog</h1>
+      <form action="/blogs" method="post">
+        <div class="form-group">
+          <label for="title">Blog Title:</label>
+          <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input type="text" class="form-control" id="author" name="author" required>
+        </div>
+        <div class="form-group">
+          <label for="content">Blog Content:</label>
+          <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    
+    <h2 class="mt-4">Blogs</h2>
+    <ul class="comment-list">
+      <% blogsWithComments.forEach((blog) => {%>
+        <li class="comment-item">
+          <h3 class="blog-title"><%= blog.blog.b_title %></h3>
+          <p class="blog-author"><strong>Author:</strong> <%= blog.blog.b_author %></p>
+          <p class="blog-content"><%= blog.blog.b_content %></p>
+          <form action="/add-comment/<%= blog.blog.id %>" method="post" class="comment-form">
+            <div class="form-group">
+              <label for="comment" class="comment-label">Add Comment:</label>
+              <input type="text" class="form-control comment-input" id="comment" name="commentData" required>
+            </div>
+            <button type="submit" class="btn btn-success comment-button">Add</button>
+          </form>
+          <ul class="comment-list">
+            <% blog.comments.forEach((com) => { %>
+              <li class="comment-item"><%= com.para %>
+                <form action="/delete-comment/<%= com.cid %>" method="post" class="delete-button">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </li>
+            <% }); %>
+          </ul>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>
